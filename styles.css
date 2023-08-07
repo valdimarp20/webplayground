@@ -19,13 +19,8 @@ body {
 
 .navbar {
     display: flex;
-    justify-content: start;
-    align-items: center;
     background-color: #00000c;
     padding: 0.5rem 1rem;
-    color: #fff;
-    border: none;
-    position: relative;
 }
 
 .logo {
@@ -37,10 +32,26 @@ body {
     margin-right: 1rem;
 }
 
-.title {
+.navbar__title {
+    display: flex;
+    color: #fff;
+    gap: 1em;
+    font-family: 'Courier New', monospace;
+}
+
+.navbar__title>h1 {
     font-size: 1.5em;
     font-weight: lighter;
     font-family: 'Courier New', monospace;
+}
+
+.github-icon {
+    display: inline-block;
+    padding: 0.7rem;
+    background-image: url('assets/github-mark-white.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
 }
 
 #main,
