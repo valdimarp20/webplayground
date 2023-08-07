@@ -12,19 +12,29 @@ const editorOptions = {
 };
 
 const htmlEditor = monaco.editor.create(document.getElementById('html-editor'), {
-  value: "<html>\n<body>\n    <h1 class='change-me'>Hello World<h1>\n</body>\n</html>",
+  value: `<button id="color-button">Change my color!</button>`,
   language: 'html',
   ...editorOptions
 });
 
 const cssEditor = monaco.editor.create(document.getElementById('css-editor'), {
-  value: '.change-me {\n    color: blue;\n}',
+  value: `#color-button {
+  padding: 10px 20px;
+  font-size: 20px;
+  transition: background-color 0.5s;
+}`,
   language: 'css',
   ...editorOptions
 });
 
 const jsEditor = monaco.editor.create(document.getElementById('js-editor'), {
-  value: "console.log('hello world')",
+  value: `
+  const button = document.getElementById('color-button');
+  button.addEventListener('click', () => {
+    const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+    button.style.backgroundColor = randomColor;
+  });
+  `,
   language: 'javascript',
   ...editorOptions
 });
