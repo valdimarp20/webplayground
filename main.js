@@ -55,10 +55,7 @@ const updatePreview = () => {
     <script>${jsCode}</script>
   `;
 
-  const preview = previewFrame.contentDocument;
-  preview.open();
-  preview.write(code);
-  preview.close();
+  previewFrame.srcdoc = code;
 }
 
 // Listen for changes in the editors and update the live preview
