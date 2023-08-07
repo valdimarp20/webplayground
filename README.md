@@ -5,6 +5,8 @@
 A simple and interactive web playground.
 Write HTML, CSS, and JavaScript code and see live results in your browser.
 
+![Web Playground Demo](./assets/demo.gif)
+
 ## 🌟 Features
 - Three separate editors for HTML, CSS, and JavaScript.
 - Live code preview.
