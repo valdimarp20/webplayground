@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Playground</title>
+    <link rel="icon" type="image/png" href="logo.png" />
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.41.0/min/vs/editor/editor.main.min.css"
+        integrity="sha512-MFDhxgOYIqLdcYTXw7en/n5BshKoduTitYmX8TkQ+iJOGjrWusRi8+KmfZOrgaDrCjZSotH2d1U1e/Z1KT6nWw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <!-- <img src="logo.png" alt="Web Playground logo"> -->
+        </div>
+        <h1 class="title">Web Playground</h1>
+    </nav>
+
+    <main id="main" class="main--split">
+        <section class="main__editors">
+            <section class="editors">
+                <article class="editor-pane editor-pane--html" role="region">
+                    <h2 class="editor-pane__title editor-pane__title--html">📄 HTML</h2>
+                    <div class="editor-pane__editor" id="html-editor"></div>
+                </article>
+
+                <article class="editor-pane editor-pane--css" role="region">
+                    <h2 class="editor-pane__title">🎨 CSS</h2>
+                    <div class="editor-pane__editor" id="css-editor"></div>
+                </article>
+
+                <article class="editor-pane editor-pane--js" role="region">
+                    <h2 class="editor-pane__title">🚀 JS</h2>
+                    <div class="editor-pane__editor" id="js-editor"></div>
+                </article>
+            </section>
+        </section>
+
+        <section class="main__preview">
+            <div class="preview">
+                <iframe id="preview-frame"></iframe>
+            </div>
+        </section>
+
+        <button class="toggle-button" id="toggle-button">Toggle Layout</button>
+
+        <script>
+            const mainElement = document.getElementById("main");
+            const toggleButton = document.getElementById("toggle-button");
+
+            // Function to toggle between main--stack and main--split layouts
+            const toggleLayout = () => {
+                mainElement.classList.toggle("main--stack");
+                mainElement.classList.toggle("main--split");
+            };
+
+            // Add click event listener to the toggle button
+            toggleButton.addEventListener("click", toggleLayout);
+        </script>
+    </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.41.0/min/vs/loader.min.js"
+        integrity="sha512-A+6SvPGkIN9Rf0mUXmW4xh7rDvALXf/f0VtOUiHlDUSPknu2kcfz1KzLpOJyL2pO+nZS13hhIjLqVgiQExLJrw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        require.config({ paths: { 'vs': 'https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.41.0/min/vs' } });
+        require(['vs/editor/editor.main'], function () {
+            var script = document.createElement('script');
+            script.src = 'main.js';
+            document.body.appendChild(script);
+        });
+    </script>
+
+</body>
+
+</html>
